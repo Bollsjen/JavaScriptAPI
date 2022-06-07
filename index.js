@@ -17,6 +17,14 @@ for(const file of commandFiles){
     for(let i in controller.posts){
         app.post(path + controller.posts[i][1], (req, res) => controller[controller.posts[i][0]](req, res))
     }
+
+    for(let i in controller.deletes){
+        app.delete(path + controller.deletes[i][1], (req, res) => controller[controller.deletes[i][0]](req, res))
+    }
+
+    for(let i in controller.patchs){
+        app.patch(path + controller.patchs[i][1], (req, res) => controller[controller.patchs[i][0]](req, res))
+    }
 }
 
 app.listen(

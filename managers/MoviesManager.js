@@ -23,4 +23,24 @@ module.exports = {
         this.Movies.push(movie)
         return movie
     },
+
+    DeleteMovie(id){
+        let movie = null
+        for(let i in this.Movies){
+            if(this.Movies[i].Id == id){
+                movie = this.Movies[i]
+                this.Movies.splice(i,1)
+            }
+        }
+        return movie
+    },
+
+    UpdateMovie(id, movie){
+        for(let i in this.Movies){
+            if(this.Movies[i].Id == id){
+                this.Movies[i] = movie
+                movie.Id = this.Movies[i].Id
+            }
+        }
+    }
 }
