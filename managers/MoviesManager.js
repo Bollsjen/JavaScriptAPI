@@ -1,10 +1,11 @@
 const Movie = require("../models/Movie.js")
+const Database = require("../database/Database.js")
 
 module.exports = {
     nextId: 3,
     Movies: new Array(new Movie(1,"Fiskens hævn", 265), new Movie(2,"Fiskens magt", 176)),
     GetAll(){
-        return this.Movies
+        return Database.select("SELECT * FROM movies")
     },
 
     GetById(id){
@@ -19,8 +20,8 @@ module.exports = {
     },
 
     AddMovie(movie){
-        movie.Id = this.nextId++
-        this.Movies.push(movie)
+        let result = Database.insert("movies", movie)
+        console.log(result)
         return movie
     },
 

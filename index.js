@@ -30,6 +30,6 @@ for(const file of commandFiles){
 app.listen(
     PORT,
     () => {
-        console.log(`Server starteed on http://localhost${PORT}`)
+        console.log(`Server starteed on http://localhost:${PORT}`)
     }
 )
